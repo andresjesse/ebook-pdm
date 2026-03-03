@@ -1,13 +1,12 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages (Docusaurus Native SSH)
 
 on:
   push:
     branches:
-      - main # Dispara o deploy toda vez que houver push na branch main
+      - main
 
 jobs:
   deploy:
-    name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,13 +20,26 @@ jobs:
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile # Garante que as versões sejam as mesmas do seu yarn.lock
+        run: yarn install --frozen-lockfile
+
+      - name: Setup SSH Agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
 
       - name: Build and Deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GIT_USER: "andresjesse"
+          # O Docusaurus precisa destas variáveis para o script de deploy
+          GIT_USER: andresjesse
+          # Força o uso de SSH em vez de HTTPS
+          USE_SSH: true
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          # Configura o Git para confiar no host do GitHub
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+          git config --global user.name "andresjesse"
+          git config --global user.email "andresjesse@users.noreply.github.com"
+
+          # Executa o comando nativo do Docusaurus
           yarn deploy
