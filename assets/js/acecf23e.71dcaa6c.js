@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkpdm_ebook=globalThis.webpackChunkpdm_ebook||[]).push([[903],{1912(o){o.exports=JSON.parse('{"blogBasePath":"/ebook-pdm/blog","blogTitle":"Blog","authorsListPath":"/ebook-pdm/blog/authors"}')}}]);
