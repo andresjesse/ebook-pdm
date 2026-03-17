@@ -1,3 +1,5 @@
+import SnackEmbedded from '@site/src/components/Snack/SnackEmbedded';
+
 # Anatomia de um Projeto Expo
 
 Agora que seu ambiente está configurado, vamos entender o que compõe um projeto mobile moderno. Antes de escrevermos nossa primeira linha de interface, precisamos compreender as fundações onde o Expo e o React Native se apoiam.
@@ -86,16 +88,7 @@ Vá em frente, explore e edite este código aqui no Snack, ou clone-o do git:
 - `git clone https://github.com/andresjesse/ebook-pdm-examples.git`
 - branch: `02-01-components`
 
-<div 
-    data-snack-id="@andresjesse/ebook-pdm-example-02-01" 
-    data-snack-platform="web" 
-    data-snack-preview="true" 
-    data-snack-files="true"
-    data-snack-loading="lazy"
-    data-snack-theme="light" 
-    class="snack">
-</div>
-<script async src="https://snack.expo.dev/embed.js"></script>
+<SnackEmbedded snackId="@andresjesse/ebook-pdm-example-02-01" />
 
 ## Renderização de Elementos React
 

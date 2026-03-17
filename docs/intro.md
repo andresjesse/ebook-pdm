@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+import Link from "@docusaurus/Link";
+
 # Boas-vindas ao E-book de PDM!
 
 Olá, futuro(a) desenvolvedor(a) mobile!
@@ -25,3 +27,13 @@ style={{ width: '200px', borderRadius: '10px', display: 'block', margin: '0 0 24
 />
 
 Sinta-se à vontade para explorar os conteúdos!
+
+<Link
+    className="button button--primary button--lg"
+    to="/docs/aulas/historico-setup/historico"
+    >📖 Acesso às Aulas</Link>
+
+<Link
+    className="button button--primary button--lg"
+    href="/docs/atividades/atividade-interpolacao"
+    >⚡ Acesso às Atividades</Link>

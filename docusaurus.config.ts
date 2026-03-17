@@ -67,9 +67,15 @@ const config: Config = {
       items: [
         {
           type: "docSidebar",
-          sidebarId: "tutorialSidebar",
+          sidebarId: "aulasSidebar",
           position: "left",
-          label: "E-book",
+          label: "Aulas",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "atividadesSidebar",
+          position: "left",
+          label: "Atividades", // Mostra o conteúdo de docs/atividades
         },
         {
           href: "https://github.com/andresjesse",

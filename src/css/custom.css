@@ -54,4 +54,5 @@
   border-width: 1px;
   border-style: solid;
   border-color: var(--ifm-toc-border-color);
+  margin-bottom: 16pt;
 }
