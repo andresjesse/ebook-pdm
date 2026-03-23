@@ -161,7 +161,7 @@ Para que o TypeScript aceite qualquer conteúdo (texto, outros componentes, íco
 
 No Snack a seguir, vamos criar um componente `Card` genérico, que aplica uma borda e uma sombra, mas não sabe o que será exibido dentro dele.
 
-<SnackEmbedded snackId="@andresjesse/ebook-pdm-example-03-01-c" />
+<SnackEmbedded snackId="@andresjesse/ebook-pdm-example-03-01-d" />
 
 **Por que usar children?**
 
