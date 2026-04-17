@@ -7,6 +7,8 @@ type SnackEmbeddedProps = {
 export default function SnackEmbedded({ snackId }: SnackEmbeddedProps) {
   return (
     <>
+      <a href={`https://snack.expo.dev/${snackId}`}>Abrir no Snack</a>
+
       <div
         data-snack-id={snackId}
         data-snack-platform="web"
