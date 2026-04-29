@@ -6,7 +6,8 @@
 
 /* Modo Claro (Cores um pouco mais escuras para contraste no fundo branco) */
 :root {
-  --ifm-color-primary: #0d9488; /* Um ciano mais fechado para leitura */
+  --ifm-color-primary: #0d9488;
+  /* Um ciano mais fechado para leitura */
   --ifm-color-primary-dark: #0f766e;
   --ifm-color-primary-darker: #115e59;
   --ifm-color-primary-darkest: #134e4a;
@@ -18,7 +19,8 @@
 
 /* Modo Escuro (Cores vibrantes como nas imagens) */
 [data-theme="dark"] {
-  --ifm-color-primary: #2dd4bf; /* O ciano neon das imagens */
+  --ifm-color-primary: #2dd4bf;
+  /* O ciano neon das imagens */
   --ifm-color-primary-dark: #14b8a6;
   --ifm-color-primary-darker: #0d9488;
   --ifm-color-primary-darkest: #0f766e;
@@ -30,8 +32,10 @@
 
 /* Estilo personalizado para o botão do E-book */
 .btn-ebook {
-  background-color: #facc15 !important; /* Amarelo Raio */
-  color: #000 !important; /* Texto preto para contraste */
+  background-color: #facc15 !important;
+  /* Amarelo Raio */
+  color: #000 !important;
+  /* Texto preto para contraste */
   border: none;
   font-weight: bold;
   transition: all 0.3s ease;
@@ -39,10 +43,24 @@
 }
 
 .btn-ebook:hover {
-  background-color: #eab308 !important; /* Amarelo um pouco mais escuro no hover */
+  background-color: #eab308 !important;
+  /* Amarelo um pouco mais escuro no hover */
   transform: scale(1.05);
   text-decoration: none;
 }
+
+.snack-link {
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+  color: var(--ifm-color-primary) !important;
+  padding: 10px 0px;
+  text-decoration: none !important;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
 
 .snack {
   overflow: hidden;
