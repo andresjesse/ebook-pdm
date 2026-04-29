@@ -55,10 +55,9 @@ const styles = StyleSheet.create({
 });
 ```
 
-Abaixo temos um exemplo em execução de uma `FlatList` básica.
+Abaixo temos um exemplo em execução de uma `FlatList` mais elaborada, com estilos e dados fake (mocks).
 
-<!-- TODO: Inserir Snack da FlatList aqui -->
-*(Espaço reservado para o Snack da FlatList)*
+<SnackEmbedded snackId="@andresjesse/ebook-pdm-example-07-01-a" />
 
 ## Dados Agrupados: `SectionList`
 
@@ -119,8 +118,11 @@ const styles = StyleSheet.create({
 
 Abaixo temos um exemplo em execução de uma `SectionList`.
 
-<!-- TODO: Inserir Snack da SectionList aqui -->
-*(Espaço reservado para o Snack da SectionList)*
+<SnackEmbedded snackId="@andresjesse/ebook-pdm-example-07-01-b" />
+
+:::info Dica
+Se os dados que você estiver trabalhando não tiverem uma chave única (como o `id`), você pode utilizar o segundo parâmetro da função `keyExtractor` para gerar uma chave única baseada no índice do item. Por exemplo: `keyExtractor={(item, index) => String(index)}`. Isso vale também para a `FlatList` e para o `.map()` padrão do javascript.
+:::
 
 ## Para Extrema Performance: `FlashList`
 
@@ -147,7 +149,7 @@ Se estiver construindo um aplicativo de produção, como um feed infinito que fa
 
 ## ⚡ Aprenda na Prática
 
-*(Placeholder para a Atividade que será criada posteriormente.)*
+> Chegou a hora de colocar as mãos no código! Acesse a <Link to="/docs/atividades/atividade-listas">**Atividade: Listas**</Link> no menu de atividades deste E-Book.
 
 ---
 
