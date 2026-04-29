@@ -36,7 +36,7 @@ Crie uma tela de "Identificação de Visitante" seguindo estas especificações:
 - Não permita que o usuário pressione o botão sem digitar o nome no campo de texto (valide e use a prop `disabled` quando a ação não for possível).
 - Quando acesso for concedido (`true`): Esconda o formulário e mostre uma mensagem de boas-vindas: _"Acesso Liberado para: [nome do visitante]"_.
 
-### 4. O que Você Deve Observar
+### 4. O que Você Deve Observar?
 
 - **TypeScript**: Garanta que seus estados possuam tipos explícitos (sintaxe: `< >` no `useState`).
 - **Evento** `onChangeText`: Certifique-se de que o estado `name` reflita exatamente o que está no input.

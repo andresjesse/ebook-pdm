@@ -38,7 +38,7 @@ Crie uma tela de "Sensor de Estacionamento" seguindo estas especificações:
 Crie uma estilização bacana para esta tela. Seja criativo!
 :::
 
-### 4. O que Você Deve Observar
+### 4. O que Você Deve Observar?
 
 - **Ao carregar**: aparece a mensagem de sistema iniciado.
 - **Ao digitar/mudar a distância**: o alerta de perigo só deve disparar se o valor atingir o limite.

@@ -36,7 +36,7 @@ Identifique e utilize o componente do React Native que é otimizado para exibir 
 
 ---
 
-## O que devo observar?
+## O que Você Deve Observar?
 
 - **Lógica de Programação**: A eficiência da sua função de agrupamento.
 - **Escolha do Componente**: Se você utilizou o componente correto para dados seccionados em vez de renderizar múltiplas listas simples.
