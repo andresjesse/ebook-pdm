@@ -4,57 +4,78 @@ sidebar_label: "⚡ Atividade: Expo Router"
 
 # ⚡ Atividade: Roteamento com Expo Router
 
-Nesta atividade, vamos construir um fluxo simples e muito comum em aplicativos móveis: uma tela de Login que, ao autenticar o usuário com sucesso, redireciona para uma tela Principal (Dashboard/Home), passando parâmetros de uma rota para a outra e manipulando corretamente a pilha de navegação.
+Nesta atividade, vamos construir um aplicativo minimalista chamado **"Clube de Cinema"**. O objetivo é praticar os três tipos principais de navegação e passagem de parâmetros utilizando o **Expo Router**, focando em uma estrutura de arquivos enxuta e no uso de componentes declarativos (`Link`) e imperativos (`router`).
 
 ## Objetivo
-Usar o layout do tipo `Stack` e criar duas telas utilizando o roteamento baseado em arquivos do **Expo Router**:
-1. **Tela de Login** (`app/index.tsx`): Formulário básico de autenticação na raiz do app.
-2. **Tela Home** (`app/home/index.tsx`): Dashboard do usuário logado.
+Criar um projeto com **apenas 3 telas** que demonstrem:
+1. Navegação sem parâmetros (com comportamento padrão).
+2. Navegação com **Route Params** (parâmetros de rota dinâmica).
+3. Navegação com **Query Params** (parâmetros de busca).
+4. Uso obrigatório de `<Link>` e do objeto `router`.
 
 ---
 
 ## Instruções da Atividade
 
+### 1. Preparação do Ambiente
+
 Para iniciar, crie um novo projeto Expo com o template de navegação:
+
 1. `yarn create expo --template`
 2. Selecione a opção `Navigation (TypeScript)`
-3. Esse template vem com algumas telas de exemplo, remova todas e crie apenas as telas necessárias para a atividade.
+3. Esse template vem com algumas telas e arquivos de exemplo, remova todas e crie apenas as telas necessárias para a atividade.
 
-> Você pode excluir, seguramente, as pastas `components`, `constants`, e todo o conteúdo da pasta `app/`.
+> Você pode seguramente excluir as pastas `components`, `constants`, e todo o conteúdo da pasta `app/`.
 
-### 1. Construção da Tela de Login (`app/index.tsx`)
-Crie a tela inicial do seu aplicativo na raiz do roteador. Ela deve conter:
-- Um componente de texto com o título (ex: "Acesso ao Sistema").
-- Dois campos de entrada de texto (`TextInput`) para capturar o **username** e a **password** do usuário.
-- Um botão de "Entrar" (`Button` ou `Pressable`).
-- Gerencie o estado (o que o usuário digita) desses campos utilizando o hook `useState`.
+### 2. Tela Inicial (`app/index.tsx`)
+Esta será a tela base do aplicativo. Ela deve conter um título "Clube de Cinema" e **três botões** (ou `Pressables`) com as seguintes regras:
 
-### 2. Lógica de Autenticação e Navegação
-Ao pressionar o botão "Entrar", você deve verificar as credenciais inseridas:
-- Login autorizado apenas para `username="fulano"` e `password="123"` (deixe esses valores hardcoded na função de autenticação).
-- Em caso de falha na autenticação, exiba um alerta nativo (`Alert.alert`) informando que o usuário ou senha estão incorretos.
+- **Botão 1: "Entrar como Convidado"**
+  - Deve navegar para a rota `/home`.
+  - **Requisito:** Use obrigatoriamente o componente `<Link>` do `expo-router`.
+- **Botão 2: "Entrar como Usuário Logado"**
+  - Deve navegar para a rota `/home`, mas passando um **Query Param**: `?user=Fulano`.
+  - **Requisito:** Use obrigatoriamente o método `router.push()`.
+- **Botão 3: "Ver um Filme Aleatório"**
+  - Deve navegar para a rota dinâmica de um filme, passando um ID aleatório entre `0` e `9`. (Ex: `/filme/8`).
+  - **Requisito:** Use obrigatoriamente o método `router.push()`.
 
-Se a autenticação for bem-sucedida, você deve **navegar para a tela Home** (`/home`). 
-- **Restrição de Pilha:** A tela de login **não deve** deixar rastros na pilha de navegação. Ou seja, ao chegar na Home, se o usuário pressionar o botão de voltar do celular, ele não deve retornar ao Login (ele deve sair do aplicativo). Para isso, utilize o método apropriado do objeto `router` (dica: *substitua* a rota em vez de *empilhar* uma nova).
-- **Envio de Parâmetros:** A navegação deve enviar o `username` validado como um **query param** para a nova rota.
+### 3. Tela Home (`app/home.tsx`) - Comportamento Dinâmico
+Crie o arquivo `app/home.tsx`. Esta tela deve se comportar de forma diferente dependendo se recebeu o parâmetro de usuário ou não:
+- Inicialmente, capture o parâmetro `user`.
+- **Lógica:**
+  - Se o parâmetro `user` não existir (acesso via Link), exiba uma mensagem genérica: `"Bem-vindo ao Clube de Cinema! Ingresso R$20,00." `.
+  - Se o parâmetro `user` possuir um valor (acesso via Admin), exiba: `"Bem-vindo, [valor_do_parametro]! Hoje tem promoção para sócios! Ingresso R$10,00." `.
+- Adicione um botão para voltar à tela inicial (`index`). Este botão deve executar uma ação do tipo "voltar", ou seja, deve retornar para a tela anterior sem "empilhar" uma nova tela "index" sobre a atual.
 
-### 3. Construção da Tela Home (`app/home/index.tsx`)
-Crie um novo diretório chamado `home` dentro de `app` e adicione um arquivo `index.tsx` dentro dele. Esta será a nossa rota `/home`.
-- Esta tela deve possuir um título de boas-vindas.
-- Utilize o hook `useLocalSearchParams()` do Expo Router para resgatar os parâmetros enviados pela rota de Login.
-- Exiba no meio da tela a mensagem dinâmica: `"Bem-vindo(a), [username_resgatado]!"` utilizando o valor capturado.
+> **Dica 1**: Seja criativo, estilize a tela home, crie um layout legal.
 
-### 4. Tela de Detalhes de um Item e Path Params
-Como um desafio adicional, vamos implementar uma tela de detalhes para praticar os **Path Params** (além dos query params que você já usou na home):
-- Na tela Home, adicione dois ou mais botões simulando itens genéricos da sua aplicação (ex: "Ver Produto A" e "Ver Produto B" ou "Ler Mensagem 10" e "Ler Mensagem 11"). Pode usar o componente `<Link>` ou o objeto `router` para a navegação.
-- Ao clicar em um desses botões, o usuário deve ser redirecionado para a rota dinâmica `app/details/[id].tsx`. Essa navegação deve embutir o identificador único do item selecionado (A, B, 10, 11, etc.) diretamente como parte do caminho da URL (um Path Param).
-- Crie o arquivo e os diretórios correspondentes para essa nova rota dinâmica.
-- Nesta nova tela de detalhes, resgate o `id` capturado da URL e exiba na tela o texto correspondente: `"Exibindo detalhes do item: [id]"`.
+> **Dica 2**: Ao implementar o botão de retorno, evite utilizar `router.push("/")`. Se você fizer isso, estará empilhando uma nova cópia da tela inicial sobre a atual, o que "suja" o histórico de navegação. Procure na documentação do Expo Router por métodos que realizam o retorno removendo a tela atual da pilha.
+
+### 4. Tela de Detalhes do Filme (`app/movie/[id].tsx`)
+
+Esta tela irá receber um ID baseado no nome do arquivo e deve exibir o nome do filme baseado no ID. Para facilitar, crie uma array de filmes no topo do arquivo `movie/[id].tsx`, ex:
+
+```typescript
+const FILMES = [
+  { id: '0', nome: 'Interestelar' },
+  { id: '1', nome: 'A Origem' },
+  { id: '2', nome: 'Batman: O Cavaleiro das Trevas' },
+  ...
+];
+```
+
+Crie a pasta `movie` dentro de `app` e, dentro dela, o arquivo `[id].tsx`. 
+- Utilize um dos hooks do expo router para capturar o `id`.
+- Exiba na tela o texto: `"Exibindo detalhes do filme: [nome_do_filme_baseado_no_id]"`.
+- Adicione um botão para voltar à Home.
 
 ---
 
-### 5. O que Você Deve Observar?
+## O que você deve observar?
 
-- **Comportamento da Pilha**: Observe a diferença crítica no botão "Voltar" do seu celular ao usar métodos de navegação distintos. Se você usar *substituição* no Login, o sistema fecha o app ao voltar da Home. Se você *empilhar* na Home, o celular apenas "desempilha" a tela de Detalhes e retorna corretamente à Home.
-- **Captura Unificada**: Note como o Expo Router facilita a captura de dados entre as telas, não importando se os dados vieram via Query Params (ex: `?username=fulano`) ou Path Params (ex: `/details/10`). Ambos são magicamente unificados e acessados através do mesmo hook `useLocalSearchParams()`.
-- **Rotas Dinâmicas em Ação**: Perceba como a criação de um arquivo com colchetes (`[id].tsx`) permite que uma única tela sirva de molde visual para inúmeros itens diferentes (Produto A, Produto B, etc), recuperando a informação correta pela URL sem a necessidade de duplicar arquivos.
+1. **Flexibilidade da mesma tela:** Note como a tela `/home` consegue atender a dois fluxos diferentes (com e sem parâmetros).
+2. **Link vs Router:** O `<Link>` é excelente para navegações simples e estáticas, enquanto o `router.push()` permite uma lógica mais dinâmica dentro de funções.
+3. **Captura Unificada:** Perceba que o Expo Router usa o mesmo hook para capturar tanto path params (`/movie/:id`) quanto query params (`?user=Fulano`).
+4. **Rotas Dinâmicas:** O uso de colchetes `[id].tsx` transforma o nome do arquivo em uma variável que o React Native consegue ler, permitindo que uma única tela sirva para milhares de filmes diferentes.
+5. **Ação de Voltar:** Ao implementar o botão de retorno, perceba que você está usando a ação de "voltar" do Expo Router, removendo a tela atual da pilha de navegação.

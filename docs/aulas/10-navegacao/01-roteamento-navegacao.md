@@ -22,7 +22,7 @@ Nos últimos anos, o ecossistema do React (como o Next.js para a web) popularizo
 O Expo Router é construído *em cima* do React Navigation, oferecendo os mesmos benefícios de performance e navegação nativa, mas simplificando drasticamente a forma como definimos rotas. Em vez de escrever códigos complexos de configuração, as telas do seu aplicativo são geradas automaticamente com base na estrutura de pastas dentro de um diretório chamado `app`.
 
 :::info Dica
-Se você for iniciar um projeto novo, o comando `yarn create expo --template` e selecione a opção `Navigation (TypeScript)` já vem com o Expo Router configurado. Para este material, assumiremos que você está utilizando o Expo Router, que é a solução padrão nas versões mais recentes do Expo.
+Se você for iniciar um projeto novo, o comando `yarn create expo --template` e selecione a opção `Navigation (TypeScript)` já vem com o Expo Router configurado. Para este material, assumiremos que você está utilizando o Expo Router, que é a solução padrão nas versões mais recentes do Expo. **Importante**: Esse template vem com algumas telas e arquivos de exemplo, você pode seguramente excluir as pastas `components`, `constants`, e todo o conteúdo da pasta `app/` para criar a sua estrutura de navegação a partir do zero.
 :::
 
 ---
