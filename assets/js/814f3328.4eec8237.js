@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkpdm_ebook=globalThis.webpackChunkpdm_ebook||[]).push([[7472],{5513(e){e.exports=JSON.parse('{"title":"Recent posts","items":[]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkpdm_ebook=globalThis.webpackChunkpdm_ebook||[]).push([[3111],{6652(o){o.exports=JSON.parse('{"metadata":{"permalink":"/ebook-pdm/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":0,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
